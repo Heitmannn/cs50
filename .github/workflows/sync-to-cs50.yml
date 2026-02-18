@@ -17,6 +17,6 @@ jobs:
         run: |
           git remote add cs50 https://github.com/code50/52741595
           git push cs50 main --force
-        env
+        env:
           GITHUB_TOKEN: ${{ secrets.CS50_GITHUB_TOKEN }}
 
