@@ -1,0 +1,22 @@
+name: Sync to CS50
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to CS50
+        run: |
+          git remote add cs50 https://github.com/code50/52741595.git
+          git push cs50 main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.CS50_GITHUB_TOKEN }}
+
